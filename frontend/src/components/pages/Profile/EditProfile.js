@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Navbar from "../../header/Navbar";
 import { useNavigate } from "react-router-dom";
 import '../../../fonts/fonts.css'
+import Git_img from "../../assets/Edit_p_img.png"
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -118,9 +119,9 @@ function EditProfile() {
         <div className="main-box">
           <div className="left-box">
             <div className="details">Details</div>
-            <div className="photo">
-              <img src="" alt="" />
-            </div>
+            <img src={Git_img} className="photo">
+              {/* <img src="Git_img" alt="" /> */}
+            </img>
 
             <div className="userid">
               USER ID

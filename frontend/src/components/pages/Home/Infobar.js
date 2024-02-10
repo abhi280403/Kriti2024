@@ -33,10 +33,15 @@ const Infobar = () => {
     }
   };
 
-  const [friend, setFriend] = useState(false);
+  const [friend1, setFriend1] = useState(false);
+  const [friend2, setFriend2] = useState(false);
 
-  function madeFriend(){
-    setFriend((prevState) =>!prevState)
+  function madeFriend1(){
+    setFriend1((prevState) =>!prevState)
+  }
+
+  function madeFriend2(){
+    setFriend2((prevState) =>!prevState)
   }
 
   const [isNotifyOpen, setIsNotifyOpen] = useState(false);
@@ -96,9 +101,9 @@ const Infobar = () => {
               <div>Rishi Kiran</div>
               <p><img src={mapIcon} alt="Map Icon" /> IIT Guwahati</p>
             </div>
-            <div className="info-select" onClick={madeFriend}>
+            <div className="info-select1" onClick={madeFriend1}>
               <img
-                src={friend ? isFriend : NotFriend}
+                src={friend1 ? isFriend : NotFriend}
                 alt="request friend"
               />
             </div>
@@ -109,9 +114,9 @@ const Infobar = () => {
               <div>Rishi Kiran</div>
               <p><img src={mapIcon} alt="Map Icon" /> IIT Guwahati</p>
             </div>
-            <div className="info-select" onClick={madeFriend}>
+            <div className="info-select2" onClick={madeFriend2}>
               <img
-                src={friend ? isFriend : NotFriend}
+                src={friend2 ? isFriend : NotFriend}
                 alt="request friend"
               />
             </div>

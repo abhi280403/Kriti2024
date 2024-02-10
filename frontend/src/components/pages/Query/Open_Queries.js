@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../../header/Navbar';
 import sidearrow from "../../assets/side-arrow.png"
+import Git_img from "../../assets/Edit_p_img.png"
+import AVATAR from "../../assets/Avatar_3.png"
 
 function Open_Queries() {
     const location = useLocation();
@@ -74,7 +76,7 @@ function Open_Queries() {
          
         <div className='Open_Queires_LHS_Top_Left'>
             
-          <div className='Open_Queries_Rectangle'></div>
+          <img src={Git_img} className='Open_Queries_Rectangle'></img>
 
           <div className='Open_Queries_LHS_Top_Left_Icons'>
 
@@ -127,11 +129,7 @@ function Open_Queries() {
                         
                             <div className='Open_Queries_Actual_Sub_Comments'>
                                 <div className='Open_queries_Sub_Comments_Profile'>
-                                    <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                        <circle cx="24" cy="24" r="24" fill="#D9D9D9"/>
-                                    </svg>
-                                    </div>
+                                    <img className='AVATAR_Queries' src={AVATAR}></img>
     
                                     <div className='Open_Queries_Comments_Content'>
                                         <div className='Open_Queries_Comments_Content_Name_Time'>
@@ -155,7 +153,7 @@ function Open_Queries() {
 
 
          <div className='Open_Queries_RHS_Related'>
-            <img src={sidearrow}></img>
+            <img src={sidearrow} className='Side_arrow_queries'></img>
             <div className='Open_Queries_RHS_Related'>Related</div>
          </div>
 
@@ -166,7 +164,7 @@ function Open_Queries() {
               
               <div className="Open_Queries_Posts">
              <div className='Open_Queries_Posted_By'>Posted by Jatin</div>
-             <div>1st Aug</div>
+             <div className='Aug'>1st Aug</div>
              </div>
          </div>
 
@@ -177,7 +175,7 @@ function Open_Queries() {
               
               <div className="Open_Queries_Posts">
              <div className='Open_Queries_Posted_By'>Posted by Jatin</div>
-             <div>1st Aug</div>
+             <div className='Aug'>1st Aug</div>
              </div>
          </div>
 
@@ -188,7 +186,7 @@ function Open_Queries() {
               
               <div className="Open_Queries_Posts">
              <div className='Open_Queries_Posted_By'>Posted by Jatin</div>
-             <div>1st Aug</div>
+             <div className='Aug'>1st Aug</div>
              </div>
          </div>
 

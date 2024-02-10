@@ -104,12 +104,12 @@ function Sidebar({m_strUser}) {
                 <li>Aero-modelling</li>
                 <li>Web Development</li>
               </ul> */}
-              <div className="data1"><img src={diamond}></img>Backend Dev <img src={Side_arrow}></img></div>
-              <div className="data1"><img src={diamond}></img>UI Design<img src={Side_arrow}></img></div>
-              <div className="data1"><img src={diamond}></img>Frontend Dev<img src={Side_arrow}></img></div>
-              <div className="data1"><img src={diamond}></img>Product Managemen<img src={Side_arrow}></img></div>
-              <div className="data1"><img src={diamond}></img>Aero-modelling<img src={Side_arrow}></img></div>
-              <div className="data1"><img src={diamond}></img>Web Development<img src={Side_arrow}></img></div>
+              <div className="data1"><div><img src={diamond}></img>Backend Dev</div> <img src={Side_arrow}></img></div>
+              <div className="data1"><div><img src={diamond}></img>UI Design</div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><img src={diamond}></img>Frontend Dev</div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><img src={diamond}></img>Product Managemen</div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><img src={diamond}></img>Aero-modelling</div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><img src={diamond}></img>Web Development</div><img src={Side_arrow}></img></div>
             </div>
           )}
         </div>
@@ -127,7 +127,11 @@ function Sidebar({m_strUser}) {
         </div> */}
       </div>
       <div>
-        <button className="edit-profile-btn">Edit Profile</button>
+        <button className="edit-profile-btn">
+          <Link to="/EditProfile" className="DOnzo">
+          Edit Profile
+          </Link>
+          </button>
         <button className="edit-profile-btn">Logout</button>
       </div>
     </div>

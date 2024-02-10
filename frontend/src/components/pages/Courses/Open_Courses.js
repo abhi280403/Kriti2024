@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../../header/Navbar';
+import AVATAR_2 from "../../assets/Avatar_2.png"
+import AVATAR_3 from "../../assets/Avatar_3.png"
 
 function Open_Courses() {
     const location = useLocation();
@@ -72,7 +74,7 @@ function Open_Courses() {
          
         <div className='Open_Courses_LHS_Top_Left'>
             
-          <div className='Open_Courses_Rectangle'></div>
+          <img src={AVATAR_2} className='Open_Courses_Rectangle'></img>
 
           <div className='Open_Courses_LHS_Top_Left_Icons'>
 
@@ -146,7 +148,7 @@ function Open_Courses() {
            <div className='Open_Courses_Main_Answer'>
             {detailCourse.review}
            </div>
-            <a href={detailCourse.link}>Link to Course</a>
+            <a href={detailCourse.link} className='Link_Course'>Link to Course</a>
            <div className='Open_Courses_Main_Comments'>
                <div className='Open_Courses_Comment_Big_box'>
                 <input className='Open_Courses_Comment_here' placeholder='Add a Comment'  onChange={(e)=>setComment(e.target.value)} value={comment}></input>
@@ -165,9 +167,10 @@ function Open_Courses() {
                 <div className='Open_Courses_Actual_Sub_Comments'>
                     <div className='Open_queries_Sub_Comments_Profile'>
                         <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                            <circle cx="24" cy="24" r="24" fill="#D9D9D9"/>
-                        </svg>
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none"> */}
+                            {/* <img src={AVATAR_2} cx="24" cy="24" r="24" fill="#D9D9D9"/> */}
+                            <img src={AVATAR_3} className='AVATAR_3'></img>
+                        {/* </svg> */}
                         </div>
 
                         <div className='Open_Courses_Comments_Content'>
@@ -206,7 +209,7 @@ function Open_Courses() {
               
               <div className="Open_Courses_Posts">
              <div className='Open_Courses_Posted_By'>Posted by Jatin</div>
-             <div>1st Aug</div>
+             <div className='Aug'>1st Aug</div>
              </div>
          </div>
 
@@ -217,7 +220,7 @@ function Open_Courses() {
               
               <div className="Open_Courses_Posts">
              <div className='Open_Courses_Posted_By'>Posted by Jatin</div>
-             <div>1st Aug</div>
+             <div className='Aug'>1st Aug</div>
              </div>
          </div>
 
@@ -228,7 +231,7 @@ function Open_Courses() {
               
               <div className="Open_Courses_Posts">
              <div className='Open_Courses_Posted_By'>Posted by Jatin</div>
-             <div>1st Aug</div>
+             <div className='Aug'>1st Aug</div>
              </div>
          </div>
 

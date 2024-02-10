@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './ContinueProject.css'
+import ProGuy from "../../assets/ProGuy__.jpg"
 
 function ContinueProject(props) {
   return (
@@ -11,7 +12,7 @@ function ContinueProject(props) {
    
           <div className='Project_Overlay_Top2'>
              
-             <div className='Project_Overlay_img'></div>
+             <img src={ProGuy} className='Project_Overlay_img'></img>
    
              <div className='Project_Overlay_img_right'>
                 <div className='Project_Overlay_Name'>ProjectName</div>

@@ -18,7 +18,7 @@
    /* margin-top: 6vh; */
      display: flex;
      /* width: 47.0625rem; */
-     min-height: 51.5rem;
+     min-height:38.5rem;
      background: #FFF;
      /* padding-bottom: 11.25rem; */
      align-items: flex-start;
@@ -28,11 +28,13 @@
      margin-left: 20px;
      height:fit-content;
      padding-top:2.5rem;
+     padding-bottom: 1rem;
      /* padding-left: 1.5rem; */
      
      
      
      padding-right:1rem;
+     margin-bottom: 1.5rem;
      /* padding-left: 2.5rem; */
   
   }
@@ -222,8 +224,8 @@
      line-height: normal;
   
      display: flex;
-     padding: 3.5rem 0rem;
-     justify-content: center;
+     padding: 1.5rem 0rem;
+     /* justify-content: center; */
      align-items: center;
      gap: 0.625rem;
      align-self: stretch;
@@ -277,10 +279,15 @@
      border: none;
      background: #F5F5F7;
   }
+
+  .Aug{
+    width:3rem;
+    display: inline-block;
+  }
   
   .Open_Courses_Actual_Comments{
      display: flex;
-     min-height: 27.875rem;
+     /* min-height: 27.875rem; */
      flex-direction: column;
      align-items: flex-start;
      gap: 1.25rem;
@@ -489,4 +496,24 @@
     }
   .Open_Courses_Post_Time{
     font-size:1.323rem;
+  }
+
+  .AVATAR_3{
+   border-radius: 50px;
+   width:65px;
+   height:65px;
+  }
+
+  .Link_Course{
+   border: 2px solid black;
+   border-radius: 20px;
+   background-color: #D9D9D9;
+   padding: 0.45rem;
+   color: #000;
+   font-size: 01vw;
+   text-decoration: none;
+  }
+
+  .Link_Course:visited{
+   color: black;
   }

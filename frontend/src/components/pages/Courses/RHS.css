@@ -196,3 +196,9 @@ align-self: stretch;
 .RHS-My-Courses-Content-Main{
     cursor: pointer;
 }
+
+.AVATAR_2{
+    border-radius: 200px;
+    height:40px;
+    width:40px;
+}

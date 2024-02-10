@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .cross-btn{
@@ -82,11 +82,19 @@
   float: right;
 }
 
-.info-select img{
+.info-select1 img{
   width: 1.8rem;
   height: 1.8rem;
 }
-.info-select :hover{
+.info-select1 :hover{
+  cursor: pointer;
+}
+
+.info-select2 img{
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.info-select2 :hover{
   cursor: pointer;
 }
 
@@ -166,7 +174,7 @@
   padding: 0px 0px;
   background-color: white;
   overflow: hidden;
-  transition: max-height 1.5s ease-out;
+  transition: max-height 0.0001s ease-out;
   max-height: 0;
   /* transition: max-height 1.5s ease-out; */
 }

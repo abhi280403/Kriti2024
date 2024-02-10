@@ -3,6 +3,7 @@ import RHS from './RHS'
 import './Add_A_Course.css'
 import img from '../../assets/image-2.png'
 import axios from 'axios'
+import AVATAR_2 from "../../assets/Avatar_2.png"
 
 function Add_A_Course(props) {
 

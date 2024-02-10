@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./AddCourses.css";
 import axios from "axios";
 import course_img from "../../assets/course_img.jpg";
+import COURSES_1 from "../../assets/courses_1.png"
+import AVATAR_1 from "../../assets/Avatar.jpg"
 
 function AddCourse(props) {
   const [allCourses, setAllCourses] = useState([]);
@@ -43,7 +45,7 @@ function AddCourse(props) {
           <div className="Top3-box" id={`A${elm._id}`} onClick={openCourse}>
             <div className="Top3-greybox" id={`B${elm._id}`}>
               <img
-                src={course_img}
+                src={COURSES_1}
                 alt=""
                 style={{ height: "100%", width: "100%", borderRadius: "14px" }}
               />
@@ -51,7 +53,7 @@ function AddCourse(props) {
             <div className="Top3-sideinfo" id={`C${elm._id}`}>
               <div id={`D${elm._id}`}>{elm.courseName}</div>
               <div className="Top3-clubsss" id={`E${elm._id}`}>
-                <svg
+                {/* <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"
@@ -59,7 +61,9 @@ function AddCourse(props) {
                   fill="none"
                 >
                   <circle cx="12" cy="12" r="12" fill="#D9D9D9" />
-                </svg>
+                </svg> */}
+
+                <img src={AVATAR_1} className="AVATAR"></img>
                 <div
                   className="Top3-club"
                   id={`F${elm._id}`}

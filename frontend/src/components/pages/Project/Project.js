@@ -276,7 +276,7 @@ const Project = () => {
       </div>
 
               {/* Render the pop-up page conditionally */}
-              {isPopupOpen && <PopupPage onClose={togglePopup} />}
+              {isPopupOpen && <PopupPage  />}
       
       {/* <Review/> */}
     </div>
