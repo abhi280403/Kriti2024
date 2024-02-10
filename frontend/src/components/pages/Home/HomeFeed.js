@@ -134,7 +134,7 @@ const HomeFeed = () => {
               </div>
             </div>
         </div>
-        <Infobar/>
+        <Infobar />
     </div>
   )
 }

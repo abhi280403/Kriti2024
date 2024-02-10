@@ -1,10 +1,12 @@
 import React, { useState,useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import './Sidebar.css'
 import {Avatar} from "flowbite-react"
 import Side_arrow from "../../assets/side-arrow.png"
 import Graduation_hat from "../../assets/graduation-hat.png"
 import School_Pic from "../../assets/school-pic.png"
+import diamond from "../../assets/diamond.png";
 
 
 function Sidebar({m_strUser}) {
@@ -102,20 +104,20 @@ function Sidebar({m_strUser}) {
                 <li>Aero-modelling</li>
                 <li>Web Development</li>
               </ul> */}
-              <div className="data1"><img src=""></img>Backend Dev <img src=""></img></div>
-              <div className="data1"><img src=""></img>UI Design<img src=""></img></div>
-              <div className="data1"><img src=""></img>Frontend Dev<img src=""></img></div>
-              <div className="data1"><img src=""></img>Product Managemen<img src=""></img></div>
-              <div className="data1"><img src=""></img>Aero-modelling<img src=""></img></div>
-              <div className="data1"><img src=""></img>Web Development<img src=""></img></div>
+              <div className="data1"><img src={diamond}></img>Backend Dev <img src={Side_arrow}></img></div>
+              <div className="data1"><img src={diamond}></img>UI Design<img src={Side_arrow}></img></div>
+              <div className="data1"><img src={diamond}></img>Frontend Dev<img src={Side_arrow}></img></div>
+              <div className="data1"><img src={diamond}></img>Product Managemen<img src={Side_arrow}></img></div>
+              <div className="data1"><img src={diamond}></img>Aero-modelling<img src={Side_arrow}></img></div>
+              <div className="data1"><img src={diamond}></img>Web Development<img src={Side_arrow}></img></div>
             </div>
           )}
         </div>
         <div className="view-profile-close">
-          <button className="profile-btn">
+          <Link to="/courses" className="profile-btn">
             {" "}
             <img src=""></img> Courses
-          </button>
+          </Link>
         </div>
         {/* <div className="view-profile-close">
           <button className="profile-btn">
@@ -126,6 +128,7 @@ function Sidebar({m_strUser}) {
       </div>
       <div>
         <button className="edit-profile-btn">Edit Profile</button>
+        <button className="edit-profile-btn">Logout</button>
       </div>
     </div>
   );

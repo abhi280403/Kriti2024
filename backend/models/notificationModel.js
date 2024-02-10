@@ -1,14 +1,15 @@
-// import mongoose from "mongoose";
+import mongoose from "mongoose";
 
+const notificationSchema = mongoose.Schema({
+    senderName: { type: String, required: true },
+    senderEmail: { type: String, required: true },
+    receiverEmail: { type: String, required: true },
+    project: { type: String, required: true },
+    message: { type: String, required: true },
+    isRead: { type: Boolean, default: false },
+    collaborationStatus: { type: String, default: "Pending" },
+}, {
+    timestamps: true
+});
 
-// const notificationSchema = mongoose.Schema({
-
-//     name: { type: String, required: true },
-//     email: { type: String, required: true },
-//     project: { type: String, required: true },
-// }, {
-//     timestamps: true
-// });
-
-
-// export default mongoose.model("notify", notificationSchema);
+export default mongoose.model("Notification", notificationSchema);

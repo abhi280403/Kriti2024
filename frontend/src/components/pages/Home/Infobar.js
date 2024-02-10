@@ -12,6 +12,7 @@ const NotifyPage = ({ onClose }) => {
   return (
     <div className='notify-overlay'>
       <div className="notify">
+        <div className="cross-btn" onClick={onClose}>X</div>
         <Notification
           close= {onClose}
         />

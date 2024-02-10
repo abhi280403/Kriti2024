@@ -3,6 +3,7 @@ import './Open_Courses.css'
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
+import Navbar from '../../header/Navbar';
 
 function Open_Courses() {
     const location = useLocation();
@@ -62,9 +63,10 @@ function Open_Courses() {
         setFullComments(!FullComments);
     }
   return (
+    <div>
+       <Navbar />
     <div className='Open_Courses'>
 
-       
      
      <div className='Open_Courses_LHS'>
          
@@ -234,6 +236,7 @@ function Open_Courses() {
      </div>
 
     
+    </div>
     </div>
   )
 }

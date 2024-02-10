@@ -22,7 +22,7 @@ function Notification(props) {
          </div>
          <div className='noti-butn'>
             <div className='noti-accept'>Accept</div>
-            <div className='noti-decline' onClick={props.close}>Decline</div>
+            <div className='noti-decline' >Decline</div>
          </div>
 
     </div>

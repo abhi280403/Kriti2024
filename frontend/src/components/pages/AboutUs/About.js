@@ -72,7 +72,7 @@ const About =()=>{
             </div>
 
             {/* MORE INFO  */}
-            <div className="more"  ref={animatedDivRef}>
+            <div className="more" >
               <div className="more-boxes">
                 <div className="more-content">
                   CONTENT

@@ -1,72 +1,72 @@
-.Queriess{
-    background: #F5F5F7;
-    padding-top: 40px;
-    /* width: 100%; */
+.Queriess {
+  background: #f5f5f7;
+  padding-top: 40px;
+  /* width: 100%; */
 }
 
-.Queries_Main{
-    background: #F5F5F7;
+.Queries_Main {
+  background: #f5f5f7;
 }
 
-.Queries_Main{
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+.Queries_Main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 }
 
-.RHS_Queries_Main{
-    padding-top: 15px;
-    /* flex-direction: right; */
-    /* width: 25%; */
-    margin-right: 20px;
+.RHS_Queries_Main {
+  padding-top: 15px;
+  /* flex-direction: right; */
+  /* width: 25%; */
+  margin-right: 20px;
 }
 
-.Top3AndAddCourse_Queries{
-    /* width: 75%; */
-    /* background-color: red; */
-    margin-top: 2.5%;
+.Top3AndAddCourse_Queries {
+  /* width: 75%; */
+  /* background-color: red; */
+  margin-top: 0vh;
 }
 
-.AskQuery_Queries{
-    /* margin-top: -15%; */
+.AskQuery_Queries {
+  /* margin-top: -15%; */
 }
 
-.Back_Queries{
-    /* opacity: 0.5; */
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    width: 100%;
+.Back_Queries {
+  /* opacity: 0.5; */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 100%;
 }
 
-.Quereies_Done{
-    width: 90%;
+.Quereies_Done {
+  width: 90%;
 }
 
 @media (min-width: 0px) and (max-width: 550px) {
-    .Queries_Main {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+  .Queries_Main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .Quereies_Done {
-        width: 90%; /* Adjusted width */
-    }
+  .Quereies_Done {
+    width: 90%; /* Adjusted width */
+  }
 
-    .Queriess {
-        width: 100%; /* Adjusted width */
-        padding-top: 20px; /* Adjusted padding-top */
-    }
+  .Queriess {
+    width: 100%; /* Adjusted width */
+    padding-top: 20px; /* Adjusted padding-top */
+  }
 
-    .Edit {
-        width: 100%; /* Adjusted width */
-    }
+  .Edit {
+    width: 100%; /* Adjusted width */
+  }
 
-    .Top3AndAddCourse_Queries {
-        margin-top: 2.5%; /* Adjusted margin-top */
-    }
+  .Top3AndAddCourse_Queries {
+    margin-top: 2.5%; /* Adjusted margin-top */
+  }
 
-    .RHS_Queries_Main {
-        margin-right: 0; /* Removed margin-right */
-    }
+  .RHS_Queries_Main {
+    margin-right: 0; /* Removed margin-right */
+  }
 }

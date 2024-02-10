@@ -132,10 +132,6 @@
      align-self: stretch;
   }
   
-  .Open_Queries_Comment_Img{
-     /* width: 1.5rem; */
-     /* height: 1.5rem; */
-  }
   
   .Open_Queries_Comments_Number{
      align-self: stretch;
@@ -148,11 +144,6 @@
      font-style: normal;
      font-weight: 400;
      line-height: normal;
-  }
-  
-  .Open_Queries_View_Img{
-     /* width: 1.5rem; */
-     /* height: 1.5rem; */
   }
   
   .Open_Queries_Views_Number{
@@ -458,25 +449,11 @@
     
   
     @media screen and (min-width:100px) and (max-width:800px) {
-      .Open_Queries_Main_Answer{
-        /* font-size: 2.8rem; */
-      }
-    
-    .Open_Queries_RHS_Black_Text{
-      /* font-size: 2rem; */
-    }
-    .Open_Queries_Posted_By{
-      /* font-size:2rem; */
-    }
+
     .Open_Queries_Comments_Content_Name_Time{
       /* font-size:1.5rem; */
       display:flex;
       flex-wrap:wrap;
-      
-    }
-    .Open_Queries_Cant_Think_Of_Any_Name{
-      /* font-size:1.3rem; */
-    
       
     }
   }
