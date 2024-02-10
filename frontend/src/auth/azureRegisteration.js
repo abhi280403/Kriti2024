@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useMsal } from '@azure/msal-react';
 import { useNavigate } from 'react-router-dom';
+import "./azureRegisteration.css"
 import axios from 'axios';
 
 function AzureAuth() {
@@ -18,79 +19,76 @@ function AzureAuth() {
     }
   }, [accounts]);
 
-  
-
-
   const handleLogin = async () => {
     try {
       // Check if the user is already logged in
       if (accounts.length === 0) {
         // If not logged in, initiate the login process
         const loginResponse = await instance.loginPopup();
+        console.log(loginResponse);
         const username = loginResponse.account?.username;
         setm_strUser(username || "");
-
         // Store tokens in local storage
-        localStorage.setItem('msalAccount', JSON.stringify(loginResponse.account));
-        navigate('/Editprofile');
+        localStorage.setItem(
+          "msalAccount",
+          JSON.stringify(loginResponse.account)
+        );
+        navigate("/Editprofile");
       }
 
-      
       const data = await fetch("https://graph.microsoft.com/v1.0/me");
-      console.log(data.json)
+      console.log(data);
+      // console.log(data.json)
 
       postDataToBackend(data);
-      
     } catch (error) {
-      console.error('Login error:', error);
+      console.error("Login error:", error);
     }
   };
   const postDataToBackend = async (data) => {
     try {
-      
-      const response = await fetch('http://localhost:8080/api/login', {
-        
-        method: 'POST',
+      const response = await fetch("http://localhost:8080/api/login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
-      }
-      );
+        body: JSON.stringify(data),
+      });
 
       if (!response.ok) {
-        throw new Error('Failed to post login data to backend');
+        throw new Error("Failed to post login data to backend");
       }
 
-      console.log('Login data posted to backend successfully');
+      console.log("Login data posted to backend successfully");
     } catch (error) {
-      console.error('Error posting login data to backend:', error);
+      console.error("Error posting login data to backend:", error);
     }
   };
- 
-  const handleLogout = () => {
-    instance.logout();
-    setm_strUser("");
 
+  const handleLogout = () => {
+    instance.logoutPopup();
+    setm_strUser("");
+    navigate("/");
     // Clear tokens from local storage
-    localStorage.removeItem('msalAccount');
-  
+    localStorage.removeItem("msalAccount");
   };
 
   return (
     <div className="auth">
-      <h1>Welcome to Your App</h1>
+      <div className='auth_2'>
+      <h1 className='welcomeee'>Welcome to Campus Collaborator</h1>
       {m_strUser ? (
         <div>
-          <p>User: {m_strUser}</p>
-          <button onClick={handleLogout}>Logout</button>
+          {/* <p>User: {m_strUser}</p> */}
+          <button onClick={handleLogout} className='logg'>Logout</button>
         </div>
       ) : (
         <div>
-          <p>This is some content on your homepage.</p>
-          <button onClick={handleLogin}>Login with Microsoft</button>
+          {/* <p>This is some content on your homepage.</p> */}
+          <button onClick={handleLogin} className='logg'>Login with Microsoft</button>
         </div>
       )}
+      </div>
     </div>
   );
 }

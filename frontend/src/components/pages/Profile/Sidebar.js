@@ -14,7 +14,7 @@ function Sidebar({m_strUser}) {
   const[profiles,setProfiles]=useState([]);
   useEffect(() => {
     const username=JSON.parse(localStorage.getItem('msalAccount'))["username"]
-    axios.get(`http://localhost:8080/getprofile?userid=${username}`)
+    axios.get(`http://localhost:8080/getprofile?email=${username}`)
       .then(Profile => {
         setProfiles(Profile.data);
       })
@@ -66,7 +66,7 @@ function Sidebar({m_strUser}) {
 
                 <div className="education">
                   <div><img src={Graduation_hat}></img> <p>{profiles.map(profile => profile.branch)}</p></div>
-                  <div> <img src={School_Pic}></img><p>I{profiles.map(profile => profile.institute)}</p></div>
+                  <div> <img src={School_Pic}></img><p>{profiles.map(profile => profile.institute)}</p></div>
                 </div>
                 
               </div>
@@ -104,12 +104,12 @@ function Sidebar({m_strUser}) {
                 <li>Aero-modelling</li>
                 <li>Web Development</li>
               </ul> */}
-              <div className="data1"><div><img src={diamond}></img>Backend Dev</div> <img src={Side_arrow}></img></div>
-              <div className="data1"><div><img src={diamond}></img>UI Design</div><img src={Side_arrow}></img></div>
-              <div className="data1"><div><img src={diamond}></img>Frontend Dev</div><img src={Side_arrow}></img></div>
-              <div className="data1"><div><img src={diamond}></img>Product Managemen</div><img src={Side_arrow}></img></div>
-              <div className="data1"><div><img src={diamond}></img>Aero-modelling</div><img src={Side_arrow}></img></div>
-              <div className="data1"><div><img src={diamond}></img>Web Development</div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><div className="diamond_first"><img src={diamond}></img>Backend Dev</div></div> <img src={Side_arrow}></img></div>
+              <div className="data1"><div><div className="diamond_first"><img src={diamond}></img>UI Design</div></div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><div className="diamond_first"><img src={diamond}></img>Frontend Dev</div></div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><div className="diamond_first"><img src={diamond}></img>Product Managemen</div></div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><div className="diamond_first"><img src={diamond}></img>Aero-modelling</div></div><img src={Side_arrow}></img></div>
+              <div className="data1"><div><div className="diamond_first"><img src={diamond}></img>Web Development</div></div><img src={Side_arrow}></img></div>
             </div>
           )}
         </div>

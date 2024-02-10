@@ -41,7 +41,27 @@ router.get("/api/getlogin", async (req, res) => {
     res.status(500).send("Internal server error");
   }
 });
+router.post("/api/profileModel", async (req, res) => {
+  try {
+    const profileData = req.body;
 
+    const newProfile = new Profile(profileData);
+
+    await newProfile.save();
+    // console.log('Received profile data:', profileData);
+    res.status(200).json(newProfile);
+  } catch (error) {
+    console.error("Error saving profile data:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+router.get("/getprofile", async (req, res) => {
+  const userId = req.query.email;
+  console.log(userId);
+  const profile = await Profile.find({ email: userId });
+  res.json(profile);
+  // console.log(profile);
+});
 //Project upload api
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -167,26 +187,7 @@ router.get("/getprofile", async (req, res) => {
 });
 
 //API FOR UPLOADING PROJECT
-router.post("/api/saveProject", upload.single("image"), async (req, res) => {
-  try {
-    // const imageName = req.file.filename;
-    const inputFields = req.body;
 
-    // await Project.create({ image: imageName });
-
-    const newProject = new Project({
-      ...inputFields,
-      //  image: imageName,
-    });
-
-    await newProject.save();
-    // console.log('Received inputFields:', inputFields);
-    res.status(200).json({ message: "Project data saved successfully" });
-  } catch (error) {
-    console.error("Error saving project data:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 // END API FOR UPLOAD PROJECT
 
 // API FOR GETTING PROJECT DETAILS IN FRONTEN
@@ -366,16 +367,14 @@ router.get("/api/search", async (req, res) => {
   }
 });
 
-router.get('/api/searchProjects', async(req, res) => {
+router.post('/searchProjects', async(req, res) => {
   try {
       const searchTerm = req.body.search;
+
       const regex = new RegExp(searchTerm, 'i');
+
       const results = await Project.find({
-        $or: [
-          { "projectData.inputFields": { $elemMatch: { type: "heading", value: regex } } },
-          { "projectData.inputFields": { $elemMatch: { type: "subheading", value: regex } } },
-          // Add more fields to search if needed
-        ],
+          'projectconData.projectName': { $regex: regex }
       }).limit(5);
 
       if (results.length > 0) {
@@ -385,7 +384,7 @@ router.get('/api/searchProjects', async(req, res) => {
       }
   } catch (err) {
       console.error('Error searching projects:', err);
-      res.status(500).send({ message: 'Internal Server Error'});
+      res.status(500).send({ message: 'Internal Server Error' });
   }
 });
 
@@ -426,223 +425,38 @@ router.post("/api/sendNotification", async (req, res) => {
   }
 });
 
-/* import multer from 'multer'; // Import multer here
-import express from "express";
-import Profile from '../models/profileModel.js';
-import Expertise from '../models/profileModel.js';
-import LoginData from '../models/login.js';
-import CommunityPosts from "../models/communityPost.js";
-import cors from 'cors';
-import mongoose from "mongoose";
-const router = express.Router();
-import Project from '../models/Project.js';
-
-
-router.post('/api/login', async (req, res) => {
+router.get('/api/showProject', async (req, res) => {
   try {
-    
-    const loginResponse = req.body;
-    const loginData = new LoginData({ loginResponse });
-    await loginData.save();
-    
-    res.status(201).send('Login data stored successfully');
-  } catch (error) {
-    console.error('Error storing login data:', error);
-    res.status(500).send('Internal server error');
-  }
-});
-router.post('/api/profileModel', async (req, res) => {
-  try {
-    const profileData = req.body;
-    
-    const newProfile = new Profile(profileData);
+    const projects = await Project.find({}, 'projectId inputFields image')
+      .sort({ createdAt: -1 }) // Sort by createdAt field in descending order (newest first)
+      .limit(10); // Limit to the last 10 projects
 
-    await newProfile.save();
-    // console.log('Received profile data:', profileData);
-    res.status(200).json(newProfile);
-    
-    
+    res.json({ status: 'ok', data: projects });
   } catch (error) {
-    console.error('Error saving profile data:', error);
+    console.error('Error getting project details:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-  router.get('/getprofile',async(req,res)=>{
-    const userId = req.query.userid;
-    console.log(userId);
-    const profile=await Profile.find({userid:userId})
-    res.json(profile);
-    // console.log(profile);
-  })
 
-router.get('/api/sortByLatest',async (req,res) => {
-  // console.log(req);
-  res.sendStatus(200);
-})
-
-// router.get('/api/addProject',async (req,res) => {
-//   // console.log(req);
-//   res.sendStatus(200);
-// });
-
-router.get('/api/reqForCollab',async (req,res) => {
-  // console.log(req);
-  res.sendStatus(200);
-})
-
-router.post('/api/addPost',async (req,res) => {
-    
-
-  const obj = {
-      authorEmail : req.body.authorEmail,
-      authorName : req.body.authorName,
-      question : req.body.question,
-      description : req.body.description,
-      postType : req.body.postType,
-      comments : []
-    }
-  const resu = await mongoose.model("CommunityPosts").insertMany(obj);
-  // console.log(resu);
-  res.sendStatus(200);
-})
-
-router.post('/api/myQueryPosts',async (req,res) => {
-  // console.log(req.body);
-  const sort = {'_id': -1}
-  const sorted = await CommunityPosts.find({authorEmail : 'pratyush.r@iitg.ac.in',postType: 'QUERY'}).sort(sort);
-  res.json(sorted);
-})
-
-
-router.get('/api/sortQueryPostsByLatest',async (req,res) => {
-  //console.log(req);
-  const sort = {'_id': -1}
-  const sorted = await CommunityPosts.find({postType: 'QUERY'}).sort(sort)
-  // console.log(sorted);
-  res.json(sorted);
-  //res.sendStatus(200);
-})
-
-router.get('/api/sortCoursePostsByLatest',async (req,res) => {
-  const sort = {'_id': -1}
-  const sorted = await CommunityPosts.find({postType: 'COURSE'}).sort(sort)
-  // console.log(sorted);
-  res.send(sorted);
-//    res.sendStatus(200);
-})
-
-router.get('/api/myCoursePosts',async (req,res) => {
-  // console.log(req);
-  const sort = {'_id': -1}
-  const sorted = await CommunityPosts.find({authorEmail : 'pratyush.r@iitg.ac.in',postType:'COURSE'}).sort(sort);
-  res.send(sorted);
-  
-})
-
-// Reply to posts... Not fully complete.
-router.post('/api/postComment',async (req,res) => {
-  const instance = await mongoose.model("CommunityPosts").findById('65beac082017d0576aad6af3');
-  
-  instance.comments.push({
-    commentId : 2,
-    commenterEmail  : "g.kancharla@iitg.ac.in",
-    commenterName : "KANCHARLA ABHIJITH GOUD",
-    content : "How are you?"
-  })
-  await instance.save();
-  // console.log("SUCCESS");
-  res.sendStatus(200);
-})
-
-
-
-
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  }
-});
-const upload = multer({ storage: storage });
-
-const uploadImage = async (request, response) => {
-  const fileObj = {
-      path: request.file.path,
-      name: request.file.originalname,
-  }
-  
+router.post("/api/saveProject", upload.single("image"), async (req, res) => {
   try {
-      // const file = await File.create(fileObj);
-      console.log(fileObj);
-      response.status(200).json({ path: http://localhost:8080/${fileObj.path}});
-  } catch (error) {
-      console.error(error.message);
-      response.status(500).json({ error: error.message });
-  }
-}
-
-const getImage = async (request, response) => {
-  try {   
-      const file = await File.findById(request.params.fileId);
-      
-      file.downloadCount++;
-
-      await file.save();
-
-      response.download(file.path, file.name);
-  } catch (error) {
-      console.error(error.message);
-      response.status(500).json({ msg: error.message });
-  }
-}
-
-router.post('/upload', upload.single('file'), uploadImage);
-router.get('/file/:fileId', getImage);
-
-
-
-
-
-
-//API FOR UPLOADING PROJECT
-router.post('/api/saveProject', upload.single('image'), async (req, res) => {
-  try {
-   // const imageName = req.file.filename;
     const inputFields = req.body;
 
-    
-   // await Project.create({ image: imageName });
-
-    
     const newProject = new Project({
       ...inputFields,
-    //  image: imageName, 
     });
 
-   
     await newProject.save();
 
-    
-    console.log('Received inputFields:', inputFields);
-    res.status(200).json({ message: 'Project data saved successfully' });
+    console.log("Received inputFields:", inputFields);
+
+    res
+      .status(200)
+      .json({ message: "Project and form data saved successfully" });
   } catch (error) {
-    console.error('Error saving project data:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    console.error("Error saving project data:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
-// END API FOR UPLOAD PROJECT
 
-
-// API FOR GETTING PROJECT DETAILS IN FRONTEN
-router.get('/api/addProject', async (req, res) => {
-  try {
-    Project.find({}, 'projectId inputFields image').then(data => {
-      res.send({ status: "ok", data: data });
-    });
-  } catch (error) {
-    res.json({ status: error });
-  }
-});
-export default router;
-*/
 export default router;

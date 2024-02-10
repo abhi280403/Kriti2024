@@ -46,7 +46,7 @@ const Profile = () => {
     console.log("ye trigger hua",e)
     const pid = e.target.id;
     console.log("pid",pid);
-    const url =` /fullproject?id=${pid}`;
+    const url = `/fullproject?projectId=${pid}`;
     // Navigate to the constructed URL
     window.location.href=url;
 }
@@ -69,23 +69,25 @@ const Profile = () => {
           
           <div className="show-project">
           <div className="projects">
-        {projects.project && projects.map((project) => (
+        {projects.map((project) => (
             <div key={project.projectId} className="project-box">
             <img
-              src={project.image[0]}
-              // src="http://localhost:8080/uploads\\23d2d58b7cbfd54b635c526d4b199a39"
+              // src={project.image[0]}
+              src="http://localhost:8080/uploads\\e43003a39645372b0db1e55a4d6e55d1"
               alt="Project"
                className="project-image"
-               style={{ width: '28vw' }}
+               style={{ width: '100%' }}
               />
 
               <div className="project-details" onClick={fetchproject} id={`${project.projectId}`}>
                 <h3 id={`${project.projectId}`}>{project.projectId}</h3>
                 
                 {project.inputFields && project.inputFields.map((field, index) => (
-            // Display only heading
-            field.type === 'heading' && <p key={index}>{field.value}</p>
-        ))}   
+  // Display only heading
+  field.type === 'heading' && <p key={index}>{field.value}</p>
+))}
+
+               
               </div>
             </div>
           ))}
