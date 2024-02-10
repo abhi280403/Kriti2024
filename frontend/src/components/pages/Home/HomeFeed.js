@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import './HomeFeed.css'
-import DOLO from "../../assets/Dolo.png"
+import Infobar from "./Infobar";
+import DOLO from "../../assets/Project_img.png"
+import DOLO2 from "../../assets/Project_img2.png.jpg"
+import DOLO3 from "../../assets/Project_img3.webp"
 
 const HomeFeed = () => {
 
@@ -91,22 +94,22 @@ const HomeFeed = () => {
               </div>
               
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={DOLO2} className="box"></img>
               <div className="content_of_box">Chess Vs Connect4</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={DOLO3} className="box"></img>
               <div className="content_of_box">Windows Assistant</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={DOLO2} className="box"></img>
               <div className="content_of_box">Alcheringa Website</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={DOLO3} className="box"></img>
               <div className="content_of_box">Shashwat BKL</div>
               </div>
 
@@ -121,12 +124,12 @@ const HomeFeed = () => {
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={DOLO2} className="box"></img>
               <div className="content_of_box">Vibhanshu Chakka</div>
               </div>
 
               <div className="Home_img">
-              <img src={DOLO} className="box"></img>
+              <img src={DOLO3} className="box"></img>
               <div className="content_of_box">Veenas ki Mkc</div>
               </div>
             </div>
